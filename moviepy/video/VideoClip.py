@@ -218,6 +218,7 @@ class VideoClip(Clip):
         ffmpeg_params=None,
         logger="bar",
         pixel_format=None,
+        with_mask=False
     ):
         """Write the clip to a videofile.
 
@@ -314,6 +315,10 @@ class VideoClip(Clip):
         pixel_format
           Pixel format for the output video file.
 
+        with_mask
+          Boolean indicating to export with clip's mask as an alpha
+          channel (with a codec that support this).
+
         Examples
         --------
 
@@ -390,6 +395,7 @@ class VideoClip(Clip):
             ffmpeg_params=ffmpeg_params,
             logger=logger,
             pixel_format=pixel_format,
+            with_mask=with_mask
         )
 
         if remove_temp and make_audio:
